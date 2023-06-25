@@ -8,7 +8,7 @@ from collections import defaultdict
 
 def generate_subgraphs_of_g(g_input,n):
     all_nodes = g_input.nodes()
-    min_edges_num = n-1
+    min_edges_num = min(n-1, g_input.number_of_edges())
     max_edges_num = len(g_input.edges())
     all_possible_edges = g_input.edges()
     print("all possible edges in the plot:")
@@ -34,3 +34,12 @@ def generate_subgraphs_of_g(g_input,n):
             j = j+1
             print("graph number",num,graph_temp.edges)
     return all_graphs
+
+#test
+n = 3
+g = nx.DiGraph()
+g.add_nodes_from(range(1, n+1)) # Add nodes
+g.add_edge(1,2)
+
+g.add_edge(3,2)
+g.add_edge(2,3)
